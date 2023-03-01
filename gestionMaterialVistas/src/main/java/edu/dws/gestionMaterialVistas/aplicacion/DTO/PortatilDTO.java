@@ -17,8 +17,44 @@ public class PortatilDTO {
 	private String marca;
 	
 	private String modelo;
-	
+	private int id;
 	private Alumno alumno;
+	
+	
+	public PortatilDTO( String marca, String modelo, int id) {
+		super();
+		
+		this.marca = marca;
+		this.modelo = modelo;
+		this.id = id;
+		
+	}
+	
+
+	public PortatilDTO(Calendar md_date, String marca, String modelo, int id, Alumno alumno) {
+		super();
+		this.md_date = md_date;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.id = id;
+		this.alumno = alumno;
+	}
+
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Calendar getMd_date() {
 		return md_date;
@@ -44,13 +80,8 @@ public class PortatilDTO {
 		this.modelo = modelo;
 	}
 
-	public PortatilDTO(Calendar md_date, String marca, String modelo) {
-		super();
-		this.md_date = md_date;
-		this.marca = marca;
-		this.modelo = modelo;
-		
-	}
+	
+
 
 	public PortatilDTO() {
 		super();
@@ -58,8 +89,8 @@ public class PortatilDTO {
 
 	@Override
 	public String toString() {
-		return "PortatilDTO [md_date=" + md_date + ", marca=" + marca + ", modelo=" + modelo + ", alumno=" + alumno
-				+ "]";
+		return "PortatilDTO [md_date=" + md_date + ", marca=" + marca + ", modelo=" + modelo + 
+				"]";
 	}
 
 	

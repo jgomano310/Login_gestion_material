@@ -8,6 +8,7 @@
     <h1>portátiles</h1>
      
     <c:forEach items="${modelo.listaPortatiles}" var="portatil">
+      <c:out value="${portatil.id}"/> 
       <c:out value="${portatil.marca}"/> 
       <i><c:out value="${portatil.modelo}"/></i>
       <br><br>

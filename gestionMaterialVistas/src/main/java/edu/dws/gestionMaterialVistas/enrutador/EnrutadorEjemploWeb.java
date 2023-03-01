@@ -9,7 +9,7 @@ import edu.dws.gestionMaterialVistas.web.WebConfiguracionContexto;
 
 
 
-
+//configuracion de arranque de aplicacion
 public class EnrutadorEjemploWeb extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	   @Override

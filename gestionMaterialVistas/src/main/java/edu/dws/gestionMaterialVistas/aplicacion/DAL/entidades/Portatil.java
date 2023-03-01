@@ -31,7 +31,7 @@ public class Portatil {
 	@Column(name="modelo")
 	private String modelo;
 	
-	@OneToOne(mappedBy="Portatil")
+	@OneToOne(mappedBy="portatil")
 	Alumno alumno;
 
 
@@ -41,15 +41,19 @@ public class Portatil {
 		super();
 	}
 
-	public Portatil( String md_uuid, Calendar md_date, String marca, String modelo) {
-		super();
-		
-		this.md_uuid = md_uuid;
-		this.md_date = md_date;
-		this.marca = marca;
-		this.modelo = modelo;
-		
+	
+
+	public Alumno getAlumno() {
+		return alumno;
 	}
+
+
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+
+
 
 	public int getId() {
 		return id;

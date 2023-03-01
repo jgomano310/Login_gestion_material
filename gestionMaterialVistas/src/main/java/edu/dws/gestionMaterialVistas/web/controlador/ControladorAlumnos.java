@@ -17,6 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.dws.gestionMaterialVistas.aplicacion.DAL.entidades.Alumno;
 import edu.dws.gestionMaterialVistas.aplicacion.DAL.entidades.AlumnoRepository;
+import edu.dws.gestionMaterialVistas.aplicacion.DAL.entidades.Portatil;
+import edu.dws.gestionMaterialVistas.aplicacion.DTO.AdaoServicio;
+import edu.dws.gestionMaterialVistas.aplicacion.DTO.AdaoServicioIMPL;
+import edu.dws.gestionMaterialVistas.aplicacion.DTO.AlumnoDTO;
 import edu.dws.gestionMaterialVistas.aplicacion.servicios.Consultas;
 
 @Controller
@@ -27,35 +31,63 @@ public class ControladorAlumnos {
 	
 	Map<String,Object> modelo = new HashMap<String,Object>();
 	List<Alumno> listaAlumnos = new ArrayList<>();
+	List<Portatil> listaPortatillibres = new ArrayList<>();
+	List<Integer> listaPortatilnoLibres = new ArrayList<>();
+	Alumno alumno = new Alumno();
+	Portatil portatilBueno = new Portatil();
 	 protected final Log logger = LogFactory.getLog(getClass());
 	
+	AdaoServicio adao = new AdaoServicioIMPL();
 	
+	@RequestMapping(value="FormularioAlumno")
+	public String NavegacionAlumno(Model modelo) {
 	
-	@RequestMapping("Formulario")
-	public String Navegacion(Model modelo) {
-	
-		Alumno alumno = new Alumno();
+		AlumnoDTO alumnodto = new AlumnoDTO();
 		
-		modelo.addAttribute("alumno",alumno);
+		//enviamos el objeto dto a la vista
+		modelo.addAttribute("alumno",alumnodto);
 		
-		return "formulario";
+		return "FormularioAlumno";
 		
 		
 		
 	}
 	
 	 @RequestMapping(value="/guardarAlumno",method = RequestMethod.POST)
-	    public ModelAndView guardarAlumno(@ModelAttribute("alumno") Alumno alumno) {
-		 
-	    	logger.info("guardando alumno");
-	    	
-	    	consulta.InsertarAlumno(alumno);
-	    	
-	    	modelo.put("listaAlumnos",alumno);
+	    public ModelAndView guardarAlumno(@ModelAttribute("alumno") AlumnoDTO alumnodto) {
 	    	
 	    	
+	    	Portatil portatil1 = new Portatil();
 	    	
-			return new ModelAndView("Formulario", "modelo",modelo);
+	    	//recorremos los alumnos, y si esta asignado lo metemos en una lista e portatiles que están ocupados
+	    	for(Alumno alumno : consulta.buscarTodosAlumnosdao()){
+	    		if(alumno.getPortatil()!=null) {
+	    			listaPortatilnoLibres.add ((Integer)(alumno.getPortatil().getId()));
+	    		}
+	    	}
+	    	
+	    	//recorremos los portátiles y si la lista no contiene el id que pasamos por la vista lo seleccionamos
+	    	//y se lo añadimos al alumno.
+	    	
+	    	for(Portatil portatil: consulta.buscarTodos()) {
+	    		
+	    		if(!listaPortatilnoLibres.contains(portatil.getId())) {
+	    			portatilBueno=portatil;
+	    		}else {
+	    			portatilBueno=null;
+	    		}
+	    		
+	    	}
+	    	alumnodto.setPortatil(portatilBueno);
+	    	
+	    	consulta.InsertarAlumno(adao.AlumnoaDAO(alumnodto));
+	    	
+	    	logger.info("alumno introducido!!");
+	    	
+	    	
+	    	
+	    	
+			return new ModelAndView("FormularioAlumno", "modelo",modelo);
 	    	
 	    }
 	

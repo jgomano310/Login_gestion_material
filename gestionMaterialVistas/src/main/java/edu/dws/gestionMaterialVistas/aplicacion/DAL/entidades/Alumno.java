@@ -22,7 +22,7 @@ public class Alumno {
 	@Id
 	@Column(name="id_alumno", unique=true, nullable=false)
 	@GeneratedValue( strategy= GenerationType.IDENTITY )
-	private int id_alumno;
+	private int idAlumno;
 	
 	@Column(name="md_uuid")
 	private String md_uuid;
@@ -46,23 +46,33 @@ public class Alumno {
 		super();
 	}
 
-	public Alumno( String md_uuid, Calendar md_date, String nombre, String telefono, Portatil portatil) {
-		super();
-		
-		this.md_uuid = md_uuid;
-		this.md_date = md_date;
-		this.nombre = nombre;
+	
+
+	
+
+	public int getIdAlumno() {
+		return idAlumno;
+	}
+
+
+
+
+
+	public void setIdAlumno(int idAlumno) {
+		this.idAlumno = idAlumno;
+	}
+
+
+
+
+
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-		this.portatil = portatil;
 	}
 
-	public int getId_alumno() {
-		return id_alumno;
-	}
 
-	public void setId_alumno(int id_alumno) {
-		this.id_alumno = id_alumno;
-	}
+
+
 
 	public String getMd_uuid() {
 		return md_uuid;

@@ -18,22 +18,45 @@ public class AlumnoDTO {
 	
 	private String telefono;
 	
-	private Portatil portatil;
-
+	private int idAlumno;
 	
+	private Portatil portatil;
+	
+	private int id_portatil;
 
-	public AlumnoDTO(Calendar md_date, String nombre, String telefono, Portatil portatil) {
-		super();
-		this.md_date = md_date;
-		this.nombre = nombre;
-		this.telefono = telefono;
-		this.portatil = portatil;
+
+
+
+
+
+	public int getId_portatil() {
+		return id_portatil;
+	}
+
+	public void setId_portatil(int id_portatil) {
+		this.id_portatil = id_portatil;
 	}
 
 	public AlumnoDTO() {
 		super();
 	}
 
+	public AlumnoDTO(Calendar md_date, String nombre, String telefono, int idAlumno, Portatil portatil) {
+		super();
+		this.md_date = md_date;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.idAlumno = idAlumno;
+		this.portatil = portatil;
+	}
+
+	public int getIdAlumno() {
+		return idAlumno;
+	}
+
+	public void setIdAlumno(int idAlumno) {
+		this.idAlumno = idAlumno;
+	}
 
 	public Calendar getMd_date() {
 		return md_date;
@@ -67,11 +90,14 @@ public class AlumnoDTO {
 		this.portatil = portatil;
 	}
 
+
 	@Override
 	public String toString() {
-		return "AlumnoDTO [md_date=" + md_date + ", nombre=" + nombre + ", telefono=" + telefono + ", portatil="
-				+ portatil + "]";
+		return "AlumnoDTO [md_date=" + md_date + ", nombre=" + nombre + ", telefono=" + telefono + ", idAlumno="
+				+ idAlumno + ", portatil=" + portatil + "]";
 	}
+
+	
 
 	
 	

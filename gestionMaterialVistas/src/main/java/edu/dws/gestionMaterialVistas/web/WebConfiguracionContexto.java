@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+//escanea todos los paquetes y subpaquetes e importa la utilizacion del mvc
 @Configuration
 @ComponentScan
 @EnableWebMvc

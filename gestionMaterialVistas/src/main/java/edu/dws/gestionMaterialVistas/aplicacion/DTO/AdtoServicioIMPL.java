@@ -1,22 +1,32 @@
 package edu.dws.gestionMaterialVistas.aplicacion.DTO;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 import edu.dws.gestionMaterialVistas.aplicacion.DAL.entidades.Alumno;
 import edu.dws.gestionMaterialVistas.aplicacion.DAL.entidades.Portatil;
-public class AdtoServicioIMPL implements AdtoServicio {
+public class AdtoServicioIMPL {
 
-	@Override
-	public AlumnoDTO AlumnoaDTO(Calendar md_date, String nombre, String telefono, Portatil portatil) {
-		AlumnoDTO alumnoDTO= new AlumnoDTO( md_date,  nombre,  telefono, portatil);
+	public AlumnoDTO AlumnoaDTO(Alumno alumno) {
+		AlumnoDTO alumnoDTO= new AlumnoDTO(alumno.getMd_date(),  alumno.getNombre(),  alumno.getTelefono(), alumno.getIdAlumno(), alumno.getPortatil());
 		
 		return alumnoDTO;
 	}
 
-	@Override
-	public PortatilDTO PortatilaDTO(Calendar md_date, String marca, String modelo) {
-		PortatilDTO portatilDTO = new PortatilDTO( md_date,  marca,  modelo);
+	
+	public PortatilDTO PortatilaDTO(Portatil portatil) {
+		PortatilDTO portatilDTO = new PortatilDTO( portatil.getMarca(),  portatil.getModelo(), portatil.getId());
 		
 		return portatilDTO;
+	}
+	
+	public List<AlumnoDTO> ListaAlumnosAdto(List<Alumno> alumnodto) {
+		List<AlumnoDTO> lista = new ArrayList<AlumnoDTO>();
+		for (Alumno alumno : alumnodto) {
+			lista.add(AlumnoaDTO(alumno));
+		}
+		return lista;
 	}
 
 	

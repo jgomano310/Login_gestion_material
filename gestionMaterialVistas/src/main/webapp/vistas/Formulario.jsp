@@ -9,17 +9,9 @@
 <body>
 
  <form:form method="POST" 
-          action="guardarAlumno" modelAttribute="portatil">
+          action="guardarPortatil" modelAttribute="portatil">
              <table>
-                <tr>
-	
-                    <td><form:label path="md_uuid">md_uuid</form:label></td>
-                    <td><form:input path="md_uuid"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="md_date">md_date</form:label></td>
-                    <td><form:input path="md_date"/></td>
-                </tr>
+                
                 
                 <tr>
                     <td><form:label path="marca">marca</form:label></td>
@@ -31,10 +23,11 @@
                     <td><form:input path="modelo"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="guardarAlumno"/></td>
+                    <td><input type="submit" value="guardarPortatil"/></td>
                 </tr>
             </table>
         </form:form>
 
+ <button onclick="history.back()">volver</button>
 </body>
 </html>
