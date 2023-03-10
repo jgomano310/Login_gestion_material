@@ -28,6 +28,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <postgresq.connector.version>42.5.1</postgresq.connector.version>
   <org.springframework.version>5.0.6.RELEASE</org.springframework.version>
+  <springsecurity.version>5.0.6.RELEASE</springsecurity.version>
 <org.springframework.data.version>2.0.7.RELEASE</org.springframework.data.version>
   <hibernate.version>5.2.17.Final</hibernate.version>
 
@@ -44,6 +45,22 @@
    <artifactId>spring-core</artifactId>
    <version>${org.springframework.version}</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>5.0.6.RELEASE</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>5.0.6.RELEASE</version>
+</dependency>
+
+
 
 <dependency>
    <groupId>org.springframework</groupId>

@@ -10,5 +10,9 @@
 <a href="<c:url value="ListarBorrarAlumno"/>">listar alumno y borrar</a><br>
 <a href="<c:url value="listarAlumnoPorIdPortatil"/>">listar alumno por id de portatil</a><br>
 <a href="<c:url value="listarPortatilPorid"/>">listar portatil por id de alumno</a><br>
+<a href="<c:url value="login"/>">loguearse</a><br>
+<a href="<c:url value="registro"/>">registro</a><br>
+
+
 </body>
 </html>
